@@ -1,0 +1,20 @@
+class Solution:
+    def totalFruit(self, fruits: List[int]) -> int:
+        curFruits = dict()
+        left = 0
+        right = 0
+        maxFruit = 0
+        while right < len(fruits):
+            curFruits[fruits[right]] = curFruits.get(fruits[right], 0) + 1
+            right += 1
+            while len(curFruits.keys()) > 2:
+                curFruits[fruits[left]] -= 1
+                if curFruits[fruits[left]] == 0:
+                    del curFruits[fruits[left]]
+                left += 1
+            maxFruit = max(maxFruit, right-left)
+
+        return maxFruit
+            
+
+      
