@@ -32,6 +32,7 @@ class Solution:
             head = p2
             p2 = p2.next
         p0 = head
+        #Merge while both not end
         while p1 is not None and p2 is not None:
             if p1.val < p2.val:
                 p0.next = p1
@@ -41,6 +42,7 @@ class Solution:
                 p0.next = p2
                 p0 = p0.next
                 p2 = p2.next
+        #Merge remaining
         while p1 is not None:
             p0.next = p1
             p0 = p0.next
